@@ -32,7 +32,8 @@ public class ExchangeHelper {
         return sum;
     }
 
-    public static void createRandomOperation(int numAccounts, ThreadLocalRandom random, ExchangeHelper exchangeHelper) {
+    public void createRandomOperation(ThreadLocalRandom random) {
+        int numAccounts = accounts.size();
         int srcAccountIdx, destAccountIdx;
         do {
             srcAccountIdx = random.nextInt(numAccounts);
@@ -41,7 +42,7 @@ public class ExchangeHelper {
 
         for (int attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
             long amount = BASE_AMOUNT + random.nextLong(BOUND);
-            if (exchangeHelper.tryTransfer(srcAccountIdx, destAccountIdx, amount))
+            if (tryTransfer(srcAccountIdx, destAccountIdx, amount))
                 break;
         }
     }

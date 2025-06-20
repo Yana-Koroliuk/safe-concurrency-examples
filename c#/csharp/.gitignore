@@ -1,0 +1,15 @@
+[Bb]in/
+[Oo]bj/
+
+.idea/
+
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+*.log
+
+packages/
+
+.env
